@@ -1,0 +1,67 @@
+ **2.8 Review Questions**
+
+1.  **In 32-bit mode, aside from the stack pointer (ESP), what other register points to variables on the stack?**
+    베이스포인터레지스터
+2.  **Name at least four CPU status flags.**
+    Common CPU status flags include:
+   제로플래그,캐리플래그,패리티 플래그,오버플로플래그,사인플래그
+3.  **Which flag is set when the result of an unsigned arithmetic operation is too large to fit into the destination?**
+    캐리플로그
+4.  **Which flag is set when the result of a signed arithmetic operation is either 
+    오버플로 플래그
+5.  **(True/False): When a register operand size is 32 bits and the REX prefix is used, the R8D register is available for programs to use.**
+   거짓. REX 접두어는 64비트 모드에서 사용되며, R8D는 32비트 레지스터입니다.
+
+6.  **Which flag is set when an arithmetic or logical operation generates a negative result?**
+    **사인 플래그(SF)**가 설정됩니다.
+
+7.  **Which part of the CPU performs floating-point arithmetic?**
+    **부동소수점 장치(FPU)**입니다.
+
+8.  **On a 32-bit processor, how many bits are contained in each floating-point data register?**
+   80 비트가 포함됩니다.
+9.  **(True/False): The x86-64 instruction set is backward-compatible with the x86 instruction set.**
+ 참
+10. **(True/False): In current 64-bit chip implementations, all 64 bits are used for addressing.**
+   거짓. 현재 구현은 일반적으로 48비트 등 더 적은 비트를 주소 지정에 사용하며, 나머지 비트는 향후 사용을 위해 예약되어 있습니다.
+    
+11. **(True/False): The Itanium instruction set is completely different from the x86 instruction set.**
+    참. Itanium(IA-64)은 x86과 호환되지 않는 완전히 다른 아키텍처(EPIC)를 사용합니다.
+12. **(True/False): Static RAM is usually less expensive than dynamic RAM.**
+   거짓. 정적 RAM(SRAM)은 동적 RAM(DRAM)보다 비트당 가격이 더 비쌉니다.
+
+13. **(True/False): The 64-bit RDI register is available when the REX prefix is used.**
+    참. RDI와 같은 64비트 레지스터에 접근하려면 REX 접두어가 필요합니다.
+14. **(True/False): In native 64-bit mode, you can use 16-bit real mode, but not the virtual-8086 mode.**
+    거짓. 네이티브 64비트 모드에서는 16비트 리얼 모드와 가상-8086 모드 모두 지원되지 않습니다.
+15. **(True/False): The x86-64 processors have 4 more general-purpose registers than the x86 processors.**
+  거짓. x86-64 프로세서는 일반 목적 레지스터가 8개 (R8 ~ R15) 더 많아 총 16개입니다.
+
+16. **(True/False): The 64-bit version of Microsoft Windows does not support virtual-8086 mode.**
+    참.
+
+17. **(True/False): DRAM can only be erased using ultraviolet light.**
+    거짓. 이것은 EPROM(소거 가능 프로그래밍 가능 읽기 전용 메모리)에 대한 설명이며, DRAM은 전원이 끊기면 데이터가 사라지는 휘발성 RAM의 일종입니다.
+18. **(True/False): In 64-bit mode, you can use up to eight floating-point registers.**
+   거짓. 64비트 모드에서는 부동소수점 레지스터의 수가 확장되어, 16개의 128비트 XMM 레지스터를 사용할 수 있습니다.
+19. **(True/False): A bus is a plastic cable that is attached to the motherboard at both ends, but does not sit directly on the motherboard.**
+    거짓. 버스는 여러 부품을 연결하는 전기적 도체(전선 또는 회로 기판의 트레이스)의 집합입니다.
+20. **(True/False): CMOS RAM is the same as static RAM, meaning that it holds its value without any extra power or refresh cycles.**
+ 거짓. CMOS RAM은 정적 RAM과 동일하지 않습니다. CMOS는 집적 회로를 만드는 기술이며, BIOS 설정을 저장하는 소량의 메모리에 사용되고 작은 배터리로 전원이 공급됩니다. 재충전은 필요 없지만, 데이터를 유지하기 위해 배터리로부터 지속적인 전원 공급이 필요합니다.
+21. **(True/False): PCI connectors are used for graphics cards and sound cards.**
+    참. PCI(Peripheral Component Interconnect)는 PCIe로 대체되기 전까지 그래픽 카드와 사운드 카드 등 다양한 확장 카드에 흔히 사용되던 슬롯이었습니다.
+22. **(True/False): The 8259A is a controller that handles external interrupts from hardware devices.**
+    참. 8259A는 프로그램 가능한 인터럽트 컨트롤러(PIC)입니다.
+
+23. **(True/False): The acronym PCI stands for programmable component interface.**
+   거짓. PCI는 Peripheral Component Interconnect의 약자입니다.
+
+
+24. **(True/False): VRAM stands for virtual random access memory.**
+  거짓. VRAM은 video random access memory의 약자입니다.
+
+25. **At which level(s) can an assembly language program manipulate input/output?**
+   어셈블리 언어 프로그램은 물리적 I/O 포트 수준(IN 및 OUT 명령어를 사용)과 BIOS 및 OS 함수 호출을 통해 I/O를 조작할 수 있습니다.
+
+26. **Why do game programs often send their sound output directly to the sound card's hardware ports?**
+게임 프로그램이 이렇게 하는 이유는 성능과 낮은 지연 시간 때문입니다. 사운드 카드의 포트에 직접 접근함으로써 운영 체제의 사운드 드라이버 및 서비스의 오버헤드를 우회할 수 있습니다. 이는 게임과 같은 실시간 애플리케이션에 매우 중요한 더 빠르고 반응성 좋은 사운드를 제공합니다.
