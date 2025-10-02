@@ -1,0 +1,92 @@
+3.9 Review Questions and Exercises
+
+1. Provide examples of three different instruction mnemonics.
+정답: MOV (데이터 이동), ADD (덧셈), SUB (뺄셈)
+
+2. What is a calling convention, and how is it used in assembly language declarations?
+정답: 호출 규약은 함수(프로시저)를 호출할 때 인자를 전달하고, 스택을 정리하며, 반환 값을 처리하는 방법에 대한 규칙입니다. 어셈블리에서는 PROC 지시어와 함께 STDCALL이나 C 같은 키워드를 사용하여 어떤 규약을 따를지 명시합니다.
+
+3. How do you reserve space for the stack in a program?
+정답: 스택은 LIFO(Last-In, First-Out) 구조의 메모리 영역으로, 함수 호출 시 복귀 주소 저장, 매개변수 전달, 지역 변수 할당 등에 사용됩니다.
+
+4. Explain why the term assembler language is not quite correct.
+정답: 언어의 정확한 명칭은 '어셈블리 언어(assembly language)'이고, '어셈블러(assembler)'는 이 언어를 기계어로 번역하는 프로그램을 가리키기 때문입니다. 둘을 혼용하는 것은 언어와 번역기를 혼동하는 것입니다.
+
+5. Explain the difference between big endian and little endian. Also, look up the origins of this term on the Web.
+정답: 차이점: 메모리에 여러 바이트의 데이터를 저장하는 순서를 의미합니다. 빅 엔디안은 가장 중요한 바이트(MSB)를 가장 낮은 주소에 저장하고, 리틀 엔디안은 가장 덜 중요한 바이트(LSB)를 가장 낮은 주소에 저장합니다. 기원: 이 용어는 조너선 스위프트의 소설 '걸리버 여행기'에서 유래했습니다. 달걀을 깰 때 뭉툭한 끝(big-end)부터 깨는 사람들과 뾰족한 끝(little-end)부터 깨는 사람들 사이의 논쟁에서 비롯되었습니다.
+
+6. Why might you use a symbolic constant rather than an integer literal in your code?
+정답: 코드의 가독성과 유지보수성을 높이기 위해서입니다. 예를 들어 MAX_USERS = 100으로 정의하면, 숫자 100보다 MAX_USERS가 의미를 파악하기 쉽고, 나중에 값을 변경해야 할 때 정의된 한 곳만 수정하면 됩니다.
+
+7. How is a source file different from a listing file?
+정답: 소스 파일(.asm)은 프로그래머가 작성한 어셈블리 코드 원본 파일입니다. 리스팅 파일(.lst)은 어셈블러가 소스 파일을 번역하면서 생성하는 파일로, 원본 코드와 함께 각 명령어가 번역된 기계어 및 메모리 주소가 포함됩니다.
+
+8. How are data labels and code labels different?
+정답: 데이터 레이블은 변수처럼 데이터가 저장된 메모리 위치를 가리키는 이름이며, 콜론(:)으로 끝나지 않습니다. 코드 레이블은 JMP나 CALL 명령어의 목적지가 되는 코드 상의 위치를 가리키며, 반드시 콜론(:)으로 끝나야 합니다.
+
+9. (True/False): An identifier cannot begin with a numeric digit.
+정답: 참
+
+10. (True/False): A hexadecimal literal may be written as 0x3A.
+정답: 거짓 (MASM/TASM 어셈블러에서는 일반적으로 숫자 뒤에 h를 붙여 3Ah 또는 03Ah와 같이 표기합니다. 0x 접두사는 C/C++ 같은 다른 언어에서 사용하는 방식입니다.)
+
+11. (True/False): Assembly language directives execute at runtime.
+정답: 거짓 (지시어는 컴파일 타임, 즉 어셈블하는 동안 어셈블러에게 명령을 내리는 역할만 합니다.)
+
+12. (True/False): Assembly language directives can be written in any combination of uppercase and lowercase letters.
+정답: 참 (대부분의 어셈블러는 대소문자를 구분하지 않습니다.)
+
+13. Name the four basic parts of an assembly language instruction.
+정답: 레이블(Label), 니모닉(Mnemonic), 오퍼랜드(Operand), 주석(Comment)
+
+14. (True/False): MOV is an example of an instruction mnemonic.
+정답: 참
+
+15. (True/False): A code label is followed by a colon (:), but a data label does not end with a colon.
+정답: 참
+
+16. Show an example of a block comment.
+정답: COMMENT 지시어를 사용하여 특정 문자로 감싸진 블록 전체를 주석 처리할 수 있습니다.
+COMMENT !
+  이 부분은 블록 주석입니다.
+  여러 줄에 걸쳐 작성할 수 있습니다.
+!
+
+17. Why is it not a good idea to use numeric addresses when writing instructions that access variables?
+정답: 코드가 메모리의 다른 위치로 로드될 경우 하드코딩된 숫자 주소는 더 이상 유효하지 않게 되기 때문입니다. 이를 재배치(relocatable)가 불가능하다고 합니다. 레이블을 사용하면 링커가 올바른 주소를 자동으로 계산해 줍니다.
+
+18. What type of argument must be passed to the ExitProcess procedure?
+정답: 프로그램의 종료 코드를 나타내는 32비트 정수
+
+19. Which directive ends a procedure?
+정답: ENDP
+
+20. In 32-bit mode, what is the purpose of the identifier in the END directive?
+정답: 프로그램의 시작점(entry point), 즉 실행이 시작될 코드 레이블을 지정합니다.
+
+21. What is the purpose of the PROTO directive?
+정답: 외부에 있거나 아직 정의되지 않은 프로시저의 원형(prototype)을 선언하여, 해당 프로시저를 호출할 때 어셈블러가 인자의 개수와 타입을 검사할 수 있도록 합니다.
+
+22. (True/False): An Object file is produced by the Linker.
+정답: 거짓 (목적 파일은 어셈블러가 생성하며, 링커는 이 목적 파일들을 연결하여 실행 파일을 만듭니다.)
+
+23. (True/False): A Listing file is produced by the Assembler.
+정답: 참
+
+24. (True/False): A link library is added to a program just before producing an Executable file.
+정답: 참 (이 과정이 바로 링킹(linking)입니다.)
+
+25. Which data directive creates a 32-bit signed integer variable?
+정답: SDWORD
+
+26. Which data directive creates a 16-bit signed integer variable?
+정답: SWORD
+
+27. Which data directive creates a 64-bit unsigned integer variable?
+정답: QWORD
+
+28. Which data directive creates an 8-bit unsigned integer variable?
+정답: BYTE
+
+29. Which data directive creates a 10-byte packed BCD variable?
+정답: TBYTE
